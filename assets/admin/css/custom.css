@@ -1,0 +1,25 @@
+.subcategory {
+  margin-left: 20px;
+}
+
+.categories {
+  width: 20em;
+}
+
+.category-header {
+  border: 1px solid lightgrey;
+  padding: 8px;
+}
+
+.subcategory-header {
+  padding: 5px;
+  border: 1px solid lightgrey;
+}
+
+.deleteBtn {
+  color: lightgrey;
+}
+
+.deleteBtn:hover {
+  color: red;
+}

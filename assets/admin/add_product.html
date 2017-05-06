@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DoniShop | Admin</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+
+    <link href="css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+
+    <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/plugins/steps/jquery.steps.css" rel="stylesheet">
+
+    <link href="css/plugins/dropzone/basic.css" rel="stylesheet">
+    <link href="css/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+              <li class="nav-header">
+                  <div class="dropdown profile-element">
+                          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                          <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Sardor Nazirov</strong>
+                           </span> <span class="text-muted text-xs block">Admin <b class="caret"></b></span> </span> </a>
+                          <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                              <li><a href="#">Logout</a></li>
+                          </ul>
+                  </div>
+                  <div class="logo-element">
+                      DoniShop
+                  </div>
+              </li>
+              <li>
+                  <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
+              </li>
+              <li>
+                <a href="product_list.html"><i class="fa fa-list"></i> <span class="nav-label">Tovarlar ro'yxati</span> </a>
+              </li>
+              <li class="active">
+                  <a href="add_product.html"><i class="fa fa-th-large"></i> <span class="nav-label">Tovar qo'shish</span> </a>
+              </li>
+              <li>
+                <a href="settings.html"><i class="fa fa-edit"></i> <span class="nav-label">Nastroyka</span> </a>
+              </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" method="post" action="#">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <a href="javascript:;" class="logout">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Add Product</h2>
+            </div>
+        </div>
+
+
+      <!-- PAGE CONTENT -->
+         <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Yangi tovar qo'shish</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <h2>
+                                Yangi tovar qo'shish formasi
+                            </h2>
+                            <p>
+                                Yangi tovar qo'shish uchun kerakli bo'limlarni to'ldirib 'Kiritish' tugmasini bosing.
+                            </p>
+
+                          <form id="product" enctype="multipart/form-data" method="post">
+                            <fieldset>
+                              <div class="row">
+                                <div class="col-lg-4">
+                                  <div class="form-group">
+                                    <label>Nomi *</label>
+                                    <input id="header" name="header" type="text" class="form-control ">
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="form-group">
+                                    <label>Model *</label>
+                                    <input id="model" name="model" type="text" class="form-control ">
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="form-group">
+                                    <label>Brend</label>
+                                    <select name="brand" id="brand" class="form-control m-b">
+                                      <option value="0">---Brand---</option>
+                                      <option value="1">Artel</option>
+                                      <option value="2">Samsung</option>
+                                      <option value="3">LG</option>
+                                      <option value="3">TCL</option>
+                                      <option value="3">Chigo</option>
+                                      <option value="3">Shivaki</option>
+                                      <option value="3">Haier</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-4">
+                                  <div class="form-group">
+                                    <label>Original Narxi *</label>
+                                    <input id="originalPrice" name="original_price" type="number" class="form-control ">
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="form-group">
+                                    <label>Chegirmali Narxi *</label>
+                                    <input id="discountPrice" name="discount_price" type="number" class="form-control ">
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="form-group">
+                                    <label>Kategoriya</label>
+                                    <select name="category" id="category" class="form-control m-b">
+                                      <optgroup label="TV">
+                                        <option value="0">---Kategoriya tanlang---</option>
+                                        <option value="1">TV</option>
+                                        <option value="2">Konditsioner</option>
+                                      </optgroup>
+
+                                      <option value="3">Xolodilnik</option>
+                                      <option value="4">Kir yuvish moshinasi</option>
+                                      <option value="5">Chang yutgich</option>
+                                      <option value="6">Telefon</option>
+                                      <option value="7">Gaz plitasi</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-lg-4">
+                                  <div class="form-group">
+                                    <label>Razmerlari *</label>
+                                    <input id="details" name="details" type="text" class="form-control ">
+                                  </div>
+                                </div>
+                              </div>
+                            </fieldset>
+
+                            <div class="hr-line-dashed"></div>
+
+                            <fieldset>
+                              <div class="row">
+                                <div class="container">
+                                  <div class="col-lg-12">
+                                    <label>Qisqa ma'lumot *</label>
+                                    <div class="summernote">
+                                      Qisqa ma'lumot....
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="container">
+                                  <div class="col-lg-12">
+                                    <label>To'liq ma'lumot *</label>
+                                    <div class="summernote">
+                                      To'liq ma'lumot....
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </fieldset>
+
+                            <div class="hr-line-dashed"></div>
+
+                            <fieldset>
+                              <div id="dropzoneFormMain" class="dropzone">
+                                <div></div>
+                              </div>
+                            </fieldset>
+
+                            <div class="hr-line-dashed"></div>
+
+                            <fieldset>
+                              <div id="dropzoneForm" class="dropzone">
+                                <div></div>
+                              </div>
+                            </fieldset>
+
+                            <div class="hr-line-dashed"></div>
+
+                            <fieldset>
+                              <div class="form-group">
+                                <input type="submit" class="btn btn-primary col-lg-4 col-lg-offset-4" value="Kiritish">
+                              </div>
+                            </fieldset>
+                          </form>
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+      <!-- FOOTER -->
+        <div class="footer">
+          <div class="pull-right">
+            Admin
+          </div>
+          <div>
+            <strong>Copyright</strong> DoniShop &copy; 2017
+          </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Mainly scripts -->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+
+<!-- SUMMERNOTE -->
+<script src="js/plugins/summernote/summernote.min.js"></script>
+
+<!-- Data picker -->
+<script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+<!-- Steps -->
+<script src="js/plugins/steps/jquery.steps.min.js"></script>
+
+<!-- Jquery Validate -->
+<script src="js/plugins/validate/jquery.validate.min.js"></script>
+
+<!--Dropzone-->
+<script src="js/plugins/dropzone/dropzone.js"></script>
+
+<!--Sweet Alert-->
+<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
+
+<!-- Custom Javascript -->
+<script src="js/pages/add_product.js"></script>
+
+<script>
+</script>
+
+</body>
+
+</html>

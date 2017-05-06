@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DoniShop | Admin</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+
+  <link href="css/plugins/summernote/summernote.css" rel="stylesheet">
+  <link href="css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+
+  <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+  <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+  <link href="css/plugins/dropzone/basic.css" rel="stylesheet">
+  <link href="css/plugins/dropzone/dropzone.css" rel="stylesheet">
+
+  <!-- Toastr style -->
+  <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+  <link href="css/plugins/switchery/switchery.css" rel="stylesheet">
+
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+  <nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+      <ul class="nav metismenu" id="side-menu">
+        <li class="nav-header">
+          <div class="dropdown profile-element">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                          <span class="clear"> <span class="block m-t-xs">
+                            <strong class="font-bold">Sardor Nazirov</strong>
+                           </span> <span class="text-muted text-xs block">Admin <b class="caret"></b></span> </span>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </div>
+          <div class="logo-element">
+            IN+
+          </div>
+        </li>
+        <li>
+          <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
+        </li>
+        <li>
+          <a href="product_list.html"><i class="fa fa-list"></i> <span class="nav-label">Tovarlar ro'yxati</span> </a>
+        </li>
+        <li>
+          <a href="add_product.html"><i class="fa fa-th-large"></i> <span class="nav-label">Tovar qo'shish</span> </a>
+        </li>
+        <li>
+          <a href="settings.html"><i class="fa fa-edit"></i> <span class="nav-label">Nastroyka</span> </a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div id="page-wrapper" class="gray-bg">
+    <div class="row border-bottom">
+      <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+          <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+          <form role="search" class="navbar-form-custom" method="post" action="#">
+            <div class="form-group">
+              <input type="text" placeholder="Search for something..." class="form-control" name="top-search"
+                     id="top-search">
+            </div>
+          </form>
+        </div>
+        <ul class="nav navbar-top-links navbar-right">
+          <li>
+            <a href="javascript:;" class="logout">
+              <i class="fa fa-sign-out"></i> Log out
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+    </div>
+    <div class="row wrapper border-bottom white-bg page-heading">
+      <div class="col-lg-10">
+        <h2>Product edit</h2>
+      </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="tabs-container">
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#tab-1"> Product info</a></li>
+              <li class=""><a data-toggle="tab" href="#tab-4"> Images</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="tab-1" class="tab-pane active">
+                <div class="panel-body">
+
+                  <form id="editProduct">
+                    <fieldset>
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label>Nomi *</label>
+                            <input id="header" name="header" type="text" class="form-control " required>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label>Model *</label>
+                            <input id="model" name="model" type="text" class="form-control " required>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label>Brend</label>
+                            <select name="brand" id="brand" class="form-control m-b">
+                              <option value="0">---Brand---</option>
+                              <option value="1">Artel</option>
+                              <option value="2">Samsung</option>
+                              <option value="3">LG</option>
+                              <option value="3">TCL</option>
+                              <option value="3">Chigo</option>
+                              <option value="3">Shivaki</option>
+                              <option value="3">Haier</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label>Original Narxi *</label>
+                            <input id="originalPrice" name="original_price" type="number" class="form-control " required>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label>Chegirmali Narxi *</label>
+                            <input id="discountPrice" name="discount_price" type="number" class="form-control " required>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label>Kategoriya</label>
+                            <select name="category" id="category" class="form-control m-b" required>
+                              <optgroup label="TV">
+                                <option value="0">---Kategoriya tanlang---</option>
+                                <option value="1">TV</option>
+                                <option value="2">Konditsioner</option>
+                              </optgroup>
+
+                              <option value="3">Xolodilnik</option>
+                              <option value="4">Kir yuvish moshinasi</option>
+                              <option value="5">Chang yutgich</option>
+                              <option value="6">Telefon</option>
+                              <option value="7">Gaz plitasi</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label>Razmerlari *</label>
+                            <input id="details" name="details" type="text" class="form-control " required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="hr-line-dashed"></div>
+
+                      <div>
+                        <div class="form-group" id="switchBoxes">
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <fieldset>
+                      <div class="row">
+                        <div class="container">
+                          <div class="col-lg-12">
+                            <label>Qisqa ma'lumot *</label>
+                            <div class="summernote">
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="container">
+                          <div class="col-lg-12">
+                            <label>To'liq ma'lumot *</label>
+                            <div class="summernote">
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <fieldset>
+                      <div class="form-group">
+                        <input type="submit" class="btn btn-primary col-lg-4 col-lg-offset-4" value="O'zgartirish">
+                        <a class="btn btn-info" style="margin-left: 15px" href="product_list.html">Cancel</a>
+                      </div>
+                    </fieldset>
+                  </form>
+
+                  <!--<fieldset class="form-horizontal">-->
+                    <!--<div class="form-group"><label class="col-sm-2 control-label">Name:</label>-->
+                      <!--<div class="col-sm-10"><input type="text" class="form-control" placeholder="Product name"></div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group"><label class="col-sm-2 control-label">Price:</label>-->
+                      <!--<div class="col-sm-10"><input type="text" class="form-control" placeholder="$160.00"></div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group"><label class="col-sm-2 control-label">Description:</label>-->
+                      <!--<div class="col-sm-10">-->
+                        <!--<div class="summernote">-->
+                          <!--<p>Hello</p>-->
+                        <!--</div>-->
+                        <!--<button class="btn btn-success" id="sbtn">Get Value of summernote</button>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group"><label class="col-sm-2 control-label">Meta Tag Title:</label>-->
+                      <!--<div class="col-sm-10"><input type="text" class="form-control" placeholder="..."></div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group"><label class="col-sm-2 control-label">Meta Tag Description:</label>-->
+                      <!--<div class="col-sm-10"><input type="text" class="form-control"-->
+                                                    <!--placeholder="Sheets containing Lorem"></div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group"><label class="col-sm-2 control-label">Meta Tag Keywords:</label>-->
+                      <!--<div class="col-sm-10"><input type="text" class="form-control"-->
+                                                    <!--placeholder="Lorem, Ipsum, has, been"></div>-->
+                    <!--</div>-->
+                  <!--</fieldset>-->
+
+                </div>
+              </div>
+              <div id="tab-4" class="tab-pane">
+                <div class="panel-body">
+
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-stripped">
+                      <thead>
+                      <tr>
+                        <th>
+                          Image preview
+                        </th>
+                        <th>
+                          Image url
+                        </th>
+                        <th>
+                          Asosiy Rasm
+                        </th>
+                        <th>
+                          Actions
+                        </th>
+                      </tr>
+                      </thead>
+                      <tbody id="picturesBody">
+                      <tr>
+                        <td>
+                          <img src="img/gallery/2s.jpg">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" disabled value="http://mydomain.com/images/image1.png">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" value="1" disabled>
+                        </td>
+                        <td>
+                          <button class="btn btn-white"><i class="fa fa-trash"></i></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <img src="img/gallery/1s.jpg">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" disabled
+                                 value="http://mydomain.com/images/image2.png">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" value="2">
+                        </td>
+                        <td>
+                          <button class="btn btn-white"><i class="fa fa-trash"></i></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <img src="img/gallery/3s.jpg">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" disabled
+                                 value="http://mydomain.com/images/image3.png">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" value="3">
+                        </td>
+                        <td>
+                          <button class="btn btn-white"><i class="fa fa-trash"></i></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <img src="img/gallery/4s.jpg">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" disabled
+                                 value="http://mydomain.com/images/image4.png">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" value="4">
+                        </td>
+                        <td>
+                          <button class="btn btn-white"><i class="fa fa-trash"></i></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <img src="img/gallery/5s.jpg">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" disabled
+                                 value="http://mydomain.com/images/image5.png">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" value="5">
+                        </td>
+                        <td>
+                          <button class="btn btn-white"><i class="fa fa-trash"></i></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <img src="img/gallery/6s.jpg">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" disabled
+                                 value="http://mydomain.com/images/image6.png">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" value="6">
+                        </td>
+                        <td>
+                          <button class="btn btn-white"><i class="fa fa-trash"></i></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <img src="img/gallery/7s.jpg">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" disabled
+                                 value="http://mydomain.com/images/image7.png">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" value="7">
+                        </td>
+                        <td>
+                          <button class="btn btn-white"><i class="fa fa-trash"></i></button>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div id="dropzoneForm" class="dropzone">
+                    <div></div>
+                  </div>
+
+                  <form id="addImage">
+                    <fieldset>
+                      <div class="form-group">
+                        <input class="btn btn-block btn-primary btn-outline" style="margin-top: 20px" type="submit" value="Tovar rasmlarini o'zgartirish">
+                      </div>
+                    </fieldset>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <div class="pull-right">
+        Admin
+      </div>
+      <div>
+        <strong>Copyright</strong> DoniShop &copy; 2017
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Mainly scripts -->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+
+<!-- SUMMERNOTE -->
+<script src="js/plugins/summernote/summernote.min.js"></script>
+
+<!-- Data picker -->
+<script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+<script>
+  $(document).ready(function () {
+
+    $('.summernote').summernote();
+
+    $('.input-group.date').datepicker({
+      todayBtn: "linked",
+      keyboardNavigation: false,
+      forceParse: false,
+      calendarWeeks: true,
+      autoclose: true
+    });
+
+
+  });
+</script>
+
+<!--Sweet Alert-->
+<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
+<!--Dropzone-->
+<script src="js/plugins/dropzone/dropzone.js"></script>
+
+<!-- Toastr script -->
+<script src="js/plugins/toastr/toastr.min.js"></script>
+
+<!-- Jquery Validate -->
+<script src="js/plugins/validate/jquery.validate.min.js"></script>
+
+
+<!-- Switchery -->
+<script src="js/plugins/switchery/switchery.js"></script>
+
+<script src="js/waitUntilExists.js"></script>
+
+<!--Custom-->
+<script src="js/pages/edit_product.js"></script>
+
+
+</body>
+
+</html>

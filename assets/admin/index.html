@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DoniShop | Admin</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+              <li class="nav-header">
+                  <div class="dropdown profile-element">
+                          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                          <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Sardor Nazirov</strong>
+                           </span> <span class="text-muted text-xs block">Admin <b class="caret"></b></span> </span> </a>
+                          <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                              <li><a href="#">Logout</a></li>
+                          </ul>
+                  </div>
+                  <div class="logo-element">
+                      Donishop
+                  </div>
+              </li>
+              <li class="active">
+                  <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
+              </li>
+              <li>
+                <a href="product_list.html"><i class="fa fa-list"></i> <span class="nav-label">Tovarlar ro'yxati</span> </a>
+              </li>
+              <li>
+                <a href="add_product.html"><i class="fa fa-th-large"></i> <span class="nav-label">Tovar qo'shish</span> </a>
+              </li>
+              <li>
+                <a href="settings.html"><i class="fa fa-edit"></i> <span class="nav-label">Nastroyka</span> </a>
+              </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" method="post" action="#">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                      <a href="javascript:;" class="logout">
+                        <i class="fa fa-sign-out"></i> Log out
+                      </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center m-t-lg">
+                        <div class="row">
+                          <div class="col-lg-3">
+                            <div class="widget style1 lazur-bg">
+                              <div class="row">
+                                <div class="col-xs-4">
+                                  <i class="fa fa-cubes fa-5x"></i>
+                                </div>
+                                <div class="col-xs-8 text-right">
+                                  <span> Tovarlar soni </span>
+                                  <h2 class="font-bold" id="tovarSoni">0</h2>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="pull-right">
+                Admin
+            </div>
+            <div>
+                <strong>Copyright</strong> DoniShop &copy; 2017
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Mainly scripts -->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+
+<script>
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  if(!getCookie('authorization')){
+    window.location = 'login.html';
+  }
+</script>
+
+<script src="js/pages/index.js"></script>
+
+</body>
+
+</html>
